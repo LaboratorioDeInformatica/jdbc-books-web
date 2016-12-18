@@ -20,5 +20,8 @@
 <a href="executa?tarefa=CadastraAuthor" >Cadastra Author</a><br>
 <a href="executa?tarefa=BuscaAuthors" >Edita Author</a><br>
 <a href="executa?tarefa=BuscaAuthors" >CRUD Author</a><br>
+
+<h3>ISBN</h3>
+<a href="executa?tarefa=ListaIsbn" >ISBN</a><br>
 </body>
 </html>

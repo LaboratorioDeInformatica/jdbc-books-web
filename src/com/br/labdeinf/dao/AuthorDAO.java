@@ -42,7 +42,7 @@ public class AuthorDAO {
 		}
 		
 		if(fName != ""){
-			sql = sql + "  firstName = '"+fName+"'";
+			sql = sql + "  firstName LIKE '%"+fName+"%'";
 		}
 		
 		if(fName !="" && lName != ""){
@@ -50,7 +50,7 @@ public class AuthorDAO {
 		}
 		
 		if(lName !=""){
-			sql = sql + "  lastName = '"+lName+"'";
+			sql = sql + "  lastName LIKE '%"+lName+"'%";
 		}
 		
 		try(PreparedStatement statement = connection.prepareStatement(sql)){
