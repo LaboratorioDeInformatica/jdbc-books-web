@@ -15,6 +15,10 @@
 <input type="hidden" value="${usuarioLogado}" name="usuarioLogado">
 
 <h1>MENU</h1>
+
+<h3>Publishers</h3>
+<a href="executa?tarefa=ListarPublisher" >Publisher</a><br>
+
 <h3>Authors</h3>
 <a href="executa?tarefa=BuscaAuthors" >Pesquisa Author</a><br>
 <a href="executa?tarefa=CadastraAuthor" >Cadastra Author</a><br>
@@ -23,5 +27,7 @@
 
 <h3>ISBN</h3>
 <a href="executa?tarefa=ListaIsbn" >ISBN</a><br>
+
+
 </body>
 </html>

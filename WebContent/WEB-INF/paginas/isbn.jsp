@@ -9,13 +9,42 @@
 <title>ISBN</title>
  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <script src=" https://code.jquery.com/jquery-1.12.4.js"></script>
+ <script src="  https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+ 
+ <script type="text/javascript">
+ 
+ $(document).ready(function() {
+	    $('#example').DataTable( {
+	        "pagingType": "full_numbers"
+	    } );
+	} );
+ 
+ </script>
+<style>
+
+.navbar {
+      margin-bottom: 10px;
+	   
+	  background-color:  #f2f2f2;
+    color: #F2FFFC;
+      border-radius: 0px;
+	  high:15px;
+    }
+</style>
+ 
 </head>
 <body>
-
+<div class="navbar ">
+     
+   <a href="executa?tarefa=RetornaMenu">Menu</a>
+              
+    </div>
 <div class="container">
-<a href="executa?tarefa=RetornaMenu">Menu</a><br>
+<br>
 
 <h3>ISBN</h3>
 	<form action="executa" method="post" id="frm">
@@ -30,28 +59,32 @@
 
 <hr>
 <h3>Lista ISBN</h3>	
-	<table  class="table table-striped">
-	 <tr>
+	<table id="example" class=" table table-striped display" width="100%" cellspacing="0">
+	 <thead>
+	 	<tr>
    
-    <th>Nome</th>
-    <th>Sobrenome</th>
-    <th>ISBN</th>
-    <th>Opções</th>
-
-    
- 	</tr>
-		
+		    <th>Nome</th>
+		    <th>Sobrenome</th>
+		    <th>ISBN</th>
+		    <th>Opções</th>
+		</tr>
+	</thead>
+		   <tbody>
 			<c:forEach var="isbn" items="${listaIsbn}" varStatus="count" >
 			<tr>
 				<td>${isbn.author.firstName}</td> 
 				<td>${isbn.author.lastname} </td>
 				<td>${isbn.isbn}</td>
-				<td> Teste</td>
+				<td><a href="executa?tarefa=DeletaIsbn&idAuthor=${isbn.authorID}&isbn=${isbn.isbn}">Delete</a> </td>
 			</tr>
 			</c:forEach>
-		
+		</tbody>
 	</table>
 </div>
 
+<br><br>
+<footer class="container-fluid " style="background-color: #f2f2f2; padding: 25px;">
+  <p>Laboratório de Informática</p>
+</footer>
 </body>
 </html>

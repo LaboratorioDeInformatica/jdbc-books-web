@@ -23,7 +23,7 @@ public class ISBNDAO {
 		
 		List<AuthorISBN> lista = new ArrayList<AuthorISBN>();
 		
-		String sql =" SELECT  firstName , lastName , isbn FROM books.authors AS author INNER JOIN books.authorisbn AS isbn where author.authorID = isbn.authorID" ;
+		String sql =" SELECT  firstName , lastName , isbn , isbn.authorID FROM books.authors AS author INNER JOIN books.authorisbn AS isbn where author.authorID = isbn.authorID" ;
 		
 		try(PreparedStatement statement = connection.prepareStatement(sql)){
 			
@@ -39,7 +39,7 @@ public class ISBNDAO {
 				}
 				
 			} catch (Exception e) {
-				System.out.println("Erro ao executar o metodo listaISBN" +e);
+				System.out.println("Erro ao executar o metodo listaISBN :" +e);
 			}
 		}
 		
@@ -82,7 +82,7 @@ public class ISBNDAO {
 			}
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			System.out.println("problemas ao executar o sql buscaSimilaridade"+e);
 			e.printStackTrace();
 		}
 		
@@ -90,6 +90,18 @@ public class ISBNDAO {
 	}
 		
 	
-
+	public void delete(int authorID,  String isbn){
+		String sql  = "Delete from books.authorisbn where isbn=? and authorID = ?";
+		
+		try(PreparedStatement statement = connection.prepareStatement(sql)){
+			statement.setString(1, isbn);
+			statement.setInt(2, authorID);
+			statement.execute();
+			
+		} catch (SQLException e) {
+			System.out.println("Problemas ao executar o sql delete"+e);
+			e.printStackTrace();
+		}
+	}
 
 }

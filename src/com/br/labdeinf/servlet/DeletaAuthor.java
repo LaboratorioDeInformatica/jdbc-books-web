@@ -27,10 +27,10 @@ public class DeletaAuthor implements Tarefa {
 		    	
 		    	
 		   } catch (SQLException e) {
-				// TODO Auto-generated catch block
+				System.out.println("Erro ao executar o sql na  classe DeletaAuthor");
 				e.printStackTrace();
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
+				System.out.println("Erro  na  classe DeletaAuthor ");
 				e.printStackTrace();
 			}
 		
